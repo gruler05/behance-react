@@ -1,0 +1,12 @@
+.main-container {
+  margin-top: 3rem;
+}
+.searchbar-result-container {
+  overflow-y: scroll;
+  max-height: 250px;
+}
+
+.connection-list {
+  overflow-y: scroll;
+  height: 450px;
+}
