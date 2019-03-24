@@ -1,3 +1,4 @@
+// Todo: Create an error handling middleware
 const express = require("express");
 const fetch = require("isomorphic-fetch");
 const router = express.Router();
@@ -25,7 +26,9 @@ router.get("/", async (req, res) => {
     );
     res.send(flattenData);
   } catch (e) {
-    throw new Error(e);
+    res
+      .status(response.status)
+      .send({ error: `Something wrong happened on the server: ${e}` });
   }
 });
 
@@ -68,7 +71,9 @@ router.get("/:username", async (req, res) => {
         })
       : res.send({});
   } catch (e) {
-    throw new Error(e);
+    res
+      .status(response.status)
+      .send({ error: `Something wrong happened on the server: ${e}` });
   }
 });
 
@@ -100,7 +105,9 @@ router.get("/:username/projects", async (req, res) => {
     );
     return res.status !== 404 ? res.send(flattenData) : res.send([]);
   } catch (e) {
-    throw new Error(e);
+    res
+      .status(response.status)
+      .send({ error: `Something wrong happened on the server: ${e}` });
   }
 });
 
@@ -125,7 +132,9 @@ router.get("/:username/followers", async (req, res) => {
     );
     return res.status !== 404 ? res.send(flattenData) : res.send([]);
   } catch (e) {
-    throw new Error(e);
+    res
+      .status(response.status)
+      .send({ error: `Something wrong happened on the server: ${e}` });
   }
 });
 
@@ -150,7 +159,9 @@ router.get("/:username/following", async (req, res) => {
     );
     return res.status !== 404 ? res.send(flattenData) : res.send([]);
   } catch (e) {
-    throw new Error(e);
+    res
+      .status(response.status)
+      .send({ error: `Something wrong happened on the server: ${e}` });
   }
 });
 
@@ -168,7 +179,9 @@ router.get("/:username/workExperience", async (req, res) => {
       res.send(work_experience);
     }
   } catch (e) {
-    throw new Error(e);
+    res
+      .status(response.status)
+      .send({ error: `Something wrong happened on the server: ${e}` });
   }
 });
 module.exports = router;

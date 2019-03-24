@@ -3,36 +3,37 @@ import { getUserConnections } from "../../../services/userInfo";
 
 export default class ConnectionList extends Component {
   state = {
-    type: this.props.type,
     followers: [],
     following: []
   };
+  connectionType = this.props.type;
   fetchConnections = async (username, type) => {
     const data = await getUserConnections(username, type);
-    if (this.props.type === "followers") {
-      this.setState({ type: this.props.type, followers: data });
+    if (this.connectionType === "followers") {
+      this.setState({ type: this.connectionType, followers: data });
     } else {
-      this.setState({ type: this.props.type, following: data });
+      this.setState({ type: this.connectionType, following: data });
     }
   };
   componentDidMount() {
-    this.fetchConnections(this.props.user, this.props.type);
+    this.fetchConnections(this.props.user, this.connectionType);
   }
   componentDidUpdate(prevProps) {
-    if (this.props.type !== prevProps.type) {
+    if (this.connectionType !== prevProps.type) {
       if (
-        (this.props.type === "followers" &&
+        (this.connectionType === "followers" &&
           this.state.followers.length === 0) ||
-        (this.props.type === "following" && this.state.following.length === 0)
+        (this.connectionType === "following" &&
+          this.state.following.length === 0)
       )
-        this.fetchConnections(this.props.user, this.props.type);
+        this.fetchConnections(this.props.user, this.connectionType);
     }
   }
   render() {
     return (
       <div className="connection-list">
-        {this.state[this.props.type].length !== 0 ? (
-          this.state[this.props.type].map(({ id, images, username }) => (
+        {this.state[this.connectionType].length !== 0 ? (
+          this.state[this.connectionType].map(({ id, images, username }) => (
             <React.Fragment key={id}>
               <img
                 className="ui avatar tiny image"

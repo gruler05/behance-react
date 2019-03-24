@@ -53,38 +53,34 @@ class SearchBar extends Component {
       this.isTermIncluded(`${firstName} ${lastName}`)
     );
     return (
-      <React.Fragment>
-        <form className="ui form" onSubmit={event => event.preventDefault()}>
-          <div
-            className={`ui fluid search ${
-              this.state.isLoading ? "loading" : ""
-            }`}
-            onClick={() => this.hideResultsSection}
-          >
-            <div className="ui fluid icon input">
-              <input
-                className="field"
-                type="text"
-                placeholder="Search Users from Behance..."
-                value={this.state.term}
-                onChange={this.onInputChange}
-              />
-              <i className="search icon" />
-            </div>
-            <div
-              className={`results transition searchbar-result-container ${
-                this.state.term.length && this.state.showDropDownList
-                  ? "visible"
-                  : "hidden"
-              }`}
-              onClick={this.onUserSelect}
-            >
-              {filteredUsers.length !== 0 &&
-                filteredUsers.map(user => this.renderFilteredContent(user))}
-            </div>
+      <form className="ui form" onSubmit={event => event.preventDefault()}>
+        <div
+          className={`ui fluid search ${this.state.isLoading ? "loading" : ""}`}
+          onClick={() => this.hideResultsSection}
+        >
+          <div className="ui fluid icon input">
+            <input
+              className="field"
+              type="text"
+              placeholder="Search Users from Behance..."
+              value={this.state.term}
+              onChange={this.onInputChange}
+            />
+            <i className="search icon" />
           </div>
-        </form>
-      </React.Fragment>
+          <div
+            className={`results transition searchbar-result-container ${
+              this.state.term.length && this.state.showDropDownList
+                ? "visible"
+                : "hidden"
+            }`}
+            onClick={this.onUserSelect}
+          >
+            {filteredUsers.length !== 0 &&
+              filteredUsers.map(user => this.renderFilteredContent(user))}
+          </div>
+        </div>
+      </form>
     );
   }
 }

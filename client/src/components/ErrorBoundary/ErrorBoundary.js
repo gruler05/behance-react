@@ -1,4 +1,4 @@
-// Todo: To check why the exception is leaking out
+// Todo: To check why the exceptions are leaking out
 import React, { Component } from "react";
 
 export default class ErrorBoundary extends Component {

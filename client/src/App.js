@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 
 import "./App.css";
 import Profile from "./components/Profile";
@@ -10,9 +10,11 @@ class App extends Component {
     return (
       <div className="ui container">
         <div className="main-container">
-          <Route exact path="/" component={LandingPage} />
-          <SearchBar />
-          <Route path="/:user" component={Profile} />
+          <BrowserRouter>
+            <Route exact path="/" component={LandingPage} />
+            <SearchBar />
+            <Route path="/:user" component={Profile} />
+          </BrowserRouter>
         </div>
       </div>
     );

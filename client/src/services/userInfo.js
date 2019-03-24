@@ -5,7 +5,7 @@ const callApi = async route => {
     const data = await response.json();
     return data;
   } catch (e) {
-    throw new Error(e);
+    console.error(e);
   }
 };
 export const getUsers = async term => {
