@@ -9,7 +9,7 @@ const Stats = ({ userInfo: { username, stats }, onLinkClick }) => {
       </thead>
       <tbody>
         {Object.keys(stats).map(property => (
-          <tr key={`${username}-${property}`}>
+          <tr class="table-content" key={`${username}-${property}`}>
             <td data-label="name">{property}</td>
             <td data-label="contentValue">
               {property === "followers" || property === "following" ? (

@@ -9,6 +9,7 @@ const { API_KEY, BASE_URL } = require("../../config/keys");
 router.get("/", async (req, res) => {
   const { user } = req.query;
   const url = `${BASE_URL}users/?q=${user}&client_id=${API_KEY}`;
+  console.log(url);
   try {
     const response = await fetch(url);
     const data = await response.json();
@@ -37,7 +38,7 @@ router.get("/", async (req, res) => {
 router.get("/:username", async (req, res) => {
   const userName = req.params.username;
   const behanceUrl = `${BASE_URL}users/${userName}/?client_id=${API_KEY}`;
-
+  console.log(behanceUrl);
   try {
     const response = await fetch(behanceUrl);
     const {

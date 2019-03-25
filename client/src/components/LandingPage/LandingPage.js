@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-const LandingPage = () => {
+export const LandingPage = () => {
   return (
     <div className="ui middle aligned center aligned grid">
       <div className="column">

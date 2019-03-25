@@ -13,8 +13,8 @@ const Information = ({
           <span>{username}</span>
         </div>
         <div className="description">
-          <div>
-            {Object.keys(sections).map(property => {
+          {Object.keys(sections).length !== 0 &&
+            Object.keys(sections).map(property => {
               return (
                 <React.Fragment key={`${username}-${property}`}>
                   <h4>{property}</h4>
@@ -22,7 +22,6 @@ const Information = ({
                 </React.Fragment>
               );
             })}
-          </div>
         </div>
       </div>
     </div>

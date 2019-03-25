@@ -6,13 +6,14 @@ export default class ConnectionList extends Component {
     followers: [],
     following: []
   };
+
   connectionType = this.props.type;
   fetchConnections = async (username, type) => {
     const data = await getUserConnections(username, type);
     if (this.connectionType === "followers") {
-      this.setState({ type: this.connectionType, followers: data });
+      this.setState({ followers: data });
     } else {
-      this.setState({ type: this.connectionType, following: data });
+      this.setState({ following: data });
     }
   };
   componentDidMount() {
@@ -40,7 +41,7 @@ export default class ConnectionList extends Component {
                 src={images[50]}
                 alt={username}
               />
-              <span>{username}</span>
+              <span class="avatar-username">{username}</span>
               <div className="ui divider" />
             </React.Fragment>
           ))

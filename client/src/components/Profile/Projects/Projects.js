@@ -30,7 +30,7 @@ export default class Projects extends Component {
               id,
               name,
               url,
-              covers: { original },
+              covers,
               published_on,
               created_on,
               modified_on
@@ -39,7 +39,7 @@ export default class Projects extends Component {
                 <a href={url}>
                   <div className="ui link card">
                     <div className="image">
-                      <img src={original} alt={name} />
+                      <img src={covers["115"]} alt={name} />
                     </div>
                     <div className="content">
                       <div className="meta">

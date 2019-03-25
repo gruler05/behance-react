@@ -16,10 +16,9 @@ class SearchBar extends Component {
         isLoading: true
       },
       async () => {
-        if (this.state.term.length >= 1 && this.state.term.length < 6) {
-          this.setState({ user: await getUsers(this.state.term) }, () =>
-            this.setState({ isLoading: false })
-          );
+        if (this.state.term.length >= 1) {
+          const user = await getUsers(this.state.term);
+          this.setState({ user }, () => this.setState({ isLoading: false }));
           if (this.state.user.length) {
             this.setState({ showDropDownList: true });
           } else {

@@ -8,7 +8,7 @@ import Modal from "../Modals";
 import Information from "./Information";
 import Stats from "./Stats";
 import ErrorBoundary from "../ErrorBoundary";
-class Profile extends Component {
+export class Profile extends Component {
   state = {
     userInfo: {},
     showConnection: "",
