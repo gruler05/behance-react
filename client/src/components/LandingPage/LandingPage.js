@@ -5,7 +5,7 @@ export const LandingPage = () => {
     <div className="ui middle aligned center aligned grid">
       <div className="column">
         <h2 className="ui teal image header">
-          <div className="content">Behance User Profile</div>
+          <div className="content">Behance User Profile Search</div>
         </h2>
       </div>
     </div>
