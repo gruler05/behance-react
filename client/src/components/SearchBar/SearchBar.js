@@ -1,7 +1,7 @@
 // Todo: Add debounce on typeahead.
 import React, { Component } from "react";
-import { getUsers } from "../../services/userInfo";
 import { Link } from "react-router-dom";
+import { getUsers } from "../../services/userInfo";
 class SearchBar extends Component {
   state = {
     term: "",
@@ -9,23 +9,26 @@ class SearchBar extends Component {
     user: [],
     isLoading: false
   };
+  shouldShowDropDown = () =>
+    this.state.user.length
+      ? this.setState({ showDropDownList: true })
+      : this.setState({ isLoading: false });
 
+  fetchUsers = async () => {
+    if (this.state.term.length) {
+      const user = await getUsers(this.state.term);
+      this.setState({ user }, () => this.setState({ isLoading: false }));
+      this.shouldShowDropDown();
+    }
+  };
   onInputChange = event => {
     this.setState(
       {
         term: event.target.value,
         isLoading: true
       },
-      async () => {
-        if (this.state.term.length >= 1) {
-          const user = await getUsers(this.state.term);
-          this.setState({ user }, () => this.setState({ isLoading: false }));
-          if (this.state.user.length) {
-            this.setState({ showDropDownList: true });
-          } else {
-            this.setState({ isLoading: false });
-          }
-        }
+      () => {
+        this.fetchUsers();
       }
     );
   };

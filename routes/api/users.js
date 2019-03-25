@@ -9,7 +9,6 @@ const { API_KEY, BASE_URL } = require("../../config/keys");
 router.get("/", async (req, res) => {
   const { user } = req.query;
   const url = `${BASE_URL}users/?q=${user}&client_id=${API_KEY}`;
-  console.log(url);
   try {
     const response = await fetch(url);
     const data = await response.json();

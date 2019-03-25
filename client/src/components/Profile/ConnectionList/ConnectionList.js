@@ -7,34 +7,33 @@ export default class ConnectionList extends Component {
     following: []
   };
 
-  connectionType = this.props.type;
+  // connectionType = this.props.type;
   fetchConnections = async (username, type) => {
     const data = await getUserConnections(username, type);
-    if (this.connectionType === "followers") {
+    if (this.props.type === "followers") {
       this.setState({ followers: data });
     } else {
       this.setState({ following: data });
     }
   };
   componentDidMount() {
-    this.fetchConnections(this.props.user, this.connectionType);
+    this.fetchConnections(this.props.user, this.props.type);
   }
   componentDidUpdate(prevProps) {
-    if (this.connectionType !== prevProps.type) {
+    if (this.props.type !== prevProps.type) {
       if (
-        (this.connectionType === "followers" &&
+        (this.props.type === "followers" &&
           this.state.followers.length === 0) ||
-        (this.connectionType === "following" &&
-          this.state.following.length === 0)
+        (this.props.type === "following" && this.state.following.length === 0)
       )
-        this.fetchConnections(this.props.user, this.connectionType);
+        this.fetchConnections(this.props.user, this.props.type);
     }
   }
   render() {
     return (
       <div className="connection-list">
-        {this.state[this.connectionType].length !== 0 ? (
-          this.state[this.connectionType].map(({ id, images, username }) => (
+        {this.state[this.props.type].length !== 0 ? (
+          this.state[this.props.type].map(({ id, images, username }) => (
             <React.Fragment key={id}>
               <img
                 className="ui avatar tiny image"

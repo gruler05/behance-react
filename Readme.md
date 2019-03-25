@@ -2,7 +2,7 @@
 
 You can visit the project here [`https://behance-react.herokuapp.com/`](https://behance-react.herokuapp.com/). The project has been deployed to heroku. If you have any other questions that you might have after reading the Readme, please contact me on `bansodegaurav@gmail.com`
 
-## Project Architecture
+## Project Setup
 
 The project has two parts, the first is the Server and then the Client.
 
@@ -38,7 +38,7 @@ Client is build using Create React App 2. You can start the dev server on client
 
 You can visit the localserver at [http://localhost:3000/](http://localhost:3000/)
 
-You can start typing user names and the typeahead will fetch users based on how the behance api returns the data. Once the dropdown will show the users you can click on user's name and it will route you to their profile page.
+You can start typing user names and the typeahead will fetch users based on how the behance api returns the data. Once the dropdown will show the users you can click on user's name and it will route you to their profile page. The typeahead sometimes generate weird results as behance api sometimes sends null value to their query results.
 
 #### Profile Page
 
