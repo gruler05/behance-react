@@ -1,10 +1,12 @@
 # Dealer Inspire Front End Code Challenge
 
+You can visit the project here [`https://behance-react.herokuapp.com/`](https://behance-react.herokuapp.com/). The project has been deployed to heroku. If you have any other questions that you might have after reading the Readme, please contact me on `bansodegaurav@gmail.com`
+
 ## Project Architecture
 
 The project has two parts, the first is the Server and then the Client.
 
-### How to start the project?
+### How to start and build the project?
 
 #### `npm i`
 

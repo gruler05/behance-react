@@ -65,4 +65,15 @@ describe("SearchBar", () => {
     await Promise.resolve();
     expect(wrapper.find(".result").length).toEqual(2);
   });
+  it("should display no result if response is empty", async () => {
+    getUsers.mockReturnValue(Promise.resolve([]));
+    const wrapper = shallow(<SearchBar />);
+    wrapper.find("input").simulate("change", {
+      target: { value: "Matias" }
+    });
+    await Promise.resolve();
+    expect(wrapper.find(".result .title").text()).toEqual(
+      "Sorry, No results Found"
+    );
+  });
 });

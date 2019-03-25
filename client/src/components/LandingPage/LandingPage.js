@@ -4,7 +4,7 @@ export const LandingPage = () => {
   return (
     <div className="ui middle aligned center aligned grid">
       <div className="column">
-        <h2 className="ui teal image header">
+        <h2 className="ui teal image header" style={{ marginBottom: "32px" }}>
           <div className="content">Behance User Profile Search</div>
         </h2>
       </div>

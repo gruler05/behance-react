@@ -8,15 +8,15 @@ import SearchBar from "./components/SearchBar";
 class App extends Component {
   render() {
     return (
-      <div className="ui container">
-        <div className="main-container">
-          <BrowserRouter>
+      <BrowserRouter>
+        <div className="ui container">
+          <div className="main-container">
             <Route exact path="/" component={LandingPage} />
             <SearchBar />
             <Route path="/:user" component={Profile} />
-          </BrowserRouter>
+          </div>
         </div>
-      </div>
+      </BrowserRouter>
     );
   }
 }

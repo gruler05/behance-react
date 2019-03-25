@@ -76,8 +76,16 @@ class SearchBar extends Component {
             }`}
             onClick={this.onUserSelect}
           >
-            {filteredUsers.length !== 0 &&
-              filteredUsers.map(user => this.renderFilteredContent(user))}
+            {!this.state.isLoading && filteredUsers.length === 0 ? (
+              <div className="result">
+                <div className="content">
+                  <div className="title">Sorry, No results Found</div>
+                </div>
+              </div>
+            ) : (
+              filteredUsers.length !== 0 &&
+              filteredUsers.map(user => this.renderFilteredContent(user))
+            )}
           </div>
         </div>
       </form>
